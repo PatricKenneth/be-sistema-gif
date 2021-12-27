@@ -3,27 +3,24 @@ package br.com.besistemagif.domains.clients;
 import lombok.*;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.Date;
+import javax.persistence.Table;
 
-@Data
-@Builder
+import br.com.besistemagif.infrastructure.database.BaseEntity;
+
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
-public class ClientsEntity {
+@AllArgsConstructor
+@Data
+@EqualsAndHashCode(callSuper = false)
+@ToString
+@Table(name = "clients")
+public class ClientsEntity extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @Getter @Setter private String name;
 
-    private String name;
+    @Getter @Setter private String birthDate;
+    
+    @Getter @Setter private String genre;
 
-    private Date bithDate;
-
-    private String genre;
-
-    private String email;
+    @Getter @Setter private String email;
 }

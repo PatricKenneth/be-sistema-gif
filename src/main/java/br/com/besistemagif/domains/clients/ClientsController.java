@@ -18,7 +18,6 @@ public class ClientsController {
     }
 
     @PostMapping
-    public ClientsEntity save(@RequestBody ClientsEntity client){
-        return clientsRepository.save(client);
+    public ClientsEntity save(@RequestBody ClientsEntity newClient){ return clientsRepository.save(newClient);
     }
 }
