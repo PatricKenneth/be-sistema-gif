@@ -1,1 +1,0 @@
-ALTER TABLE clients_entity ADD name VARCHAR(255);
