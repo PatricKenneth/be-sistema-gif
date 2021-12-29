@@ -60,4 +60,18 @@ public class ClientsController {
         }
         return response;
     }
+
+    @DeleteMapping
+    public ResponseRequest delete(@RequestBody ClientsEntity deleteClient) {
+        ResponseRequest response = new ResponseRequest();
+        try {
+            clientsRepository.deleteById(deleteClient.getId());
+            response.setData(deleteClient);
+            response.setError(null);
+        } catch (Exception error) {
+            response.setData(null);
+            response.setError(error.getMessage());
+        }
+        return response;
+    }
 }
