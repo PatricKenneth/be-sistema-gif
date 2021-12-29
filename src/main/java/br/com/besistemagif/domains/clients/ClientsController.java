@@ -1,6 +1,7 @@
 package br.com.besistemagif.domains.clients;
 
 import br.com.besistemagif.infrastructure.response.ResponseRequest;
+import br.com.besistemagif.utils.ValidateAge;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +23,9 @@ public class ClientsController {
     public ResponseRequest save(@RequestBody ClientsEntity newClient){
         ResponseRequest response = new ResponseRequest();
         try {
+            if(!ValidateAge.toValid(newClient)) {
+                throw new Exception("Data de Nascimento inválida");
+            }
             ClientsEntity clients = clientsRepository.save(newClient);
             response.setData(clients);
             response.setError(null);
