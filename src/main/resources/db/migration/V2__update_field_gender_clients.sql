@@ -1,0 +1,3 @@
+ALTER TABLE clients ADD gender VARCHAR(255);
+
+ALTER TABLE clients DROP COLUMN genre;

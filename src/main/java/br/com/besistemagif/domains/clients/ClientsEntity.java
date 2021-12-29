@@ -3,6 +3,8 @@ package br.com.besistemagif.domains.clients;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 import br.com.besistemagif.infrastructure.database.BaseEntity;
@@ -14,13 +16,16 @@ import br.com.besistemagif.infrastructure.database.BaseEntity;
 @EqualsAndHashCode(callSuper = false)
 @ToString
 @Table(name = "clients")
+@Getter
+@Setter
 public class ClientsEntity extends BaseEntity {
 
-    @Getter @Setter private String name;
+    private String name;
 
-    @Getter @Setter private String birthDate;
-    
-    @Getter @Setter private String genre;
+    private String birthDate;
 
-    @Getter @Setter private String email;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
+    private String email;
 }
