@@ -5,6 +5,7 @@ import br.com.besistemagif.utils.ValidateAge;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -73,5 +74,11 @@ public class ClientsController {
             response.setError(error.getMessage());
         }
         return response;
+    }
+
+    @GetMapping(value = "/genders")
+    public List<Gender> getGenders() {
+        List<Gender> genders = Arrays.asList(Gender.values());
+        return genders;
     }
 }
