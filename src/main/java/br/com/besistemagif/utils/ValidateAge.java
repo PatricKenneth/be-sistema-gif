@@ -29,7 +29,7 @@ public class ValidateAge {
 
     private static Date toDate(String date) {
         try {
-            SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
             return formatDate.parse(date);
         } catch (ParseException ex) {
             System.out.println(ex.getMessage());
